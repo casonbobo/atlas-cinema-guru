@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import MovieCard from '../../components/movies/MovieCard';
 import Filter from '../../components/movies/Filter';
-import Button from '../../components/Button';
+import Button from '../../components/general/Button';
 import './dashboard.css';
 
 const HomePage = () => {

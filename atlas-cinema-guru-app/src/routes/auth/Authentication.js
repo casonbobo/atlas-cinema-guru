@@ -46,28 +46,28 @@ import './auth.css';
       }
     };
 
-  return (
-    <form onSubmit={handleSubmit}>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button type="button" onClick={handleSignIn}>
-        Sign In
-      </button>
-      <button type="button" onClick={handleSignUp}>
-        Sign Up
-      </button>
-    </form>
-  );
+    return (
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Username"
+          value={username}
+          onChange={(e) => setUsername(e.target.value)}
+        />
+        <input
+          type="password"
+          placeholder="Password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button type="button" onClick={handleSignIn}>
+          Sign In
+        </button>
+        <button type="button" onClick={handleSignUp}>
+          Sign Up
+        </button>
+      </form>
+    );
 };
 
 export default Authentication;
