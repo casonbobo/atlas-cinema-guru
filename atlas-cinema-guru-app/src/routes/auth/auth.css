@@ -1,0 +1,55 @@
+@import '../../App.css';
+
+.light-red {
+  background-color: var(--color-light-red) !important;
+}
+
+.dark-red {
+  background-color: var(--color-dark-red) !important;
+}
+
+.authentication {
+  width: 50%;
+  max-width: 450px;
+}
+
+.error-message {
+  color: var(--color-dark-red);
+  margin-top: 10px;
+  text-align: center;
+}
+
+.login, .register {
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  padding: 5%;
+  align-items: center;
+}
+
+.login-button, .register-button {
+  align-self: flex-end;
+}
+
+.login input, .register input {
+  margin-bottom: 10px;
+}
+
+.login p, .register p {
+  font-size: 19px;
+  color: var(--color-black-text);
+  align-self: center;
+}
+
+/* Toggle buttons */
+.toggle-auth {
+  display: flex;
+  flex-direction: row;
+}
+
+.toggle-auth Button {
+  margin: 0;
+  padding: 3% 10%;
+  width: 50%;
+  font-weight: 800;
+}

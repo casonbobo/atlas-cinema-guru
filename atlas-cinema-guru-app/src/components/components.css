@@ -1,10 +1,11 @@
 /*This will hold the css for misc components*/
 
-/* for Activity */
-.activity {
-    /* styles for later */
-}
-  
+@import '../App.css';
+
 .activity-description {
-/* styles for later */
+  font-style: italic;
+}
+
+.activity {
+  color: var(--color-light-red);
 }
