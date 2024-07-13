@@ -1,54 +1,49 @@
-.input-container {
-  margin-bottom: 1rem;
+@import '../../App.css';
+
+/*BUTTON - COMPONENT*/
+.button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-.input-container label {
-  display: block;
-  margin-bottom: 0.5rem;
+.custom-button:hover {
+  background-color: darkred; /* Color change on hover */
 }
 
-.input-wrapper {
+/*SEARCH BAR*/
+.search-bar {
   position: relative;
 }
 
-.input-icon {
+.search-wrapper {
+  display: flex;
+  align-items: center;
+}
+
+.search-icon {
   position: absolute;
-  left: 0.5rem;
-  top: 50%;
-  transform: translateY(-50%);
+  left: 10px;
+  color: #888;
 }
 
-.input-container input {
-  width: 100%;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  border: 1px solid #ccc;
-  outline: none;
+.search-bar-wrapper input {
+  padding-left: 30px;
+  border-radius: 25px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
 }
-
-.input-container input:focus {
-  border-color: #007bff;
+.input-wrapper input{
+  border-radius: 25px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
 }
-
-/*BUTTON STUFFS*/
-.button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  border: none;
-  background-color: #007bff;
-  color: #fff;
-  cursor: pointer;
-  outline: none;
-}
-
-.button:hover {
-  background-color: #0069d9;
-}
-
-.button:active {
-  background-color: #005cbf;
-}
-
-.button-icon {
-  margin-right: 0.5rem;
+.input-container select {
+  border-radius: 25px;
+  background-color: var(--color-dark-gray);
+  color: var(--color-white);
 }

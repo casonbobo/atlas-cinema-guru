@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import './auth.css';
-
+import Button from '../../components/general/Button';
 
   const Authentication = ({ setIsLoggedIn, setUserUsername }) => {
     const [username, setUsername] = useState('');
@@ -10,17 +10,6 @@ import './auth.css';
   
     const handleSubmit = async (event) => {
       event.preventDefault();
-  
-    const handleSignIn = () => {
-      setIsLoggedIn(true);
-      setUserUsername(username);
-    };
-  
-    const handleSignUp = () => {
-      setIsLoggedIn(false);
-      setUserUsername('');
-    };
-
       try {
         if (_switch) {
           const response = await axios.post('/api/auth/login', {
@@ -60,12 +49,18 @@ import './auth.css';
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <button type="button" onClick={handleSignIn}>
-          Sign In
-        </button>
-        <button type="button" onClick={handleSignUp}>
-          Sign Up
-        </button>
+        <Button
+          label="Sign In"
+          type="button"
+          className={_switch ? "light-red" : "dark-red"}
+          onClick={() => setSwitch(true)}
+        />
+        <Button
+          label="Sign Up"
+          type="button"
+          className={_switch ? "dark-red" : "light-red"}
+          onClick={() => setSwitch(false)}
+        />
       </form>
     );
 };

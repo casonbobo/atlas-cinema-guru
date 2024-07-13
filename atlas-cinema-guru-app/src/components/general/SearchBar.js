@@ -8,12 +8,14 @@ const SearchBar = ({ title, setTitle }) => {
 
   return (
     <div className="search-bar">
-      <input
-        type="text"
-        value={title}
-        onChange={handleInput}
-        placeholder="Search..."
-      />
+      <div className="search-wrapper">
+        <input
+          type="text"
+          value={title}
+          onChange={handleInput}
+          placeholder="Search..."
+        />
+      </div>
     </div>
   );
 };
