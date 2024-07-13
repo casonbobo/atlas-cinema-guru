@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Activity from '../Activity';
 import './navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const SideBar = () => {
       const { data } = await axios.get('http://localhost:8000/api/activity', {
         headers: { Authorization: `Bearer ${token}` }
       });
-      showActivities(data.slice(0, 10));
+      setActivities(data.slice(0, 10));
       setShowActivities(true);
     } catch (error) {
       console.error('Error fetching activities:', error);
