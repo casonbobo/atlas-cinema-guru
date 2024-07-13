@@ -1,15 +1,14 @@
-// src/components/navigation/SideBar.js
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Activity from '../Activity';
 import './navigation.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SideBar = () => {
   const navigate = useNavigate();
   const [selected, setSelected] = useState('home');
-  const [small, setSmall] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const [activities, setActivities] = useState([]);
   const [showActivities, setShowActivities] = useState(false);
 
@@ -19,44 +18,66 @@ const SideBar = () => {
   };
 
   useEffect(() => {
-    axios.get('/api/activity')
-      .then((response) => {
-        setActivities(response.data);
-      })
-      .catch((error) => {
-        console.error('Error fetching activities:', error);
+    retrieveActivities();
+  }, [retrieveActivities]);
+
+  const handleSidebarToggle = () => {
+    setIsCollapsed(prevState => !prevState);
+  };
+  const retrieveActivities = useCallback(async () => {
+    try {
+      const token = localStorage.getItem('accessToken');
+      const { data } = await axios.get('http://localhost:8000/api/activity', {
+        headers: { Authorization: `Bearer ${token}` }
       });
+      showActivities(data.slice(0, 10));
+      setShowActivities(true);
+    } catch (error) {
+      console.error('Error fetching activities:', error);
+    }
   }, []);
 
   return (
-    <nav className="sidebar">
+    <nav
+      className={`sidebar ${isCollapsed ? '' : 'open'}`}
+      onMouseEnter={handleSidebarToggle}
+      onMouseLeave={handleSidebarToggle}
+    >
       <ul className="sidebar-nav">
         <li
-          className={`sidebar-nav-item ${selected === 'home' ? 'selected' : ''}`}
+          className={`nav-item ${selected === 'Home' ? 'Selected' : ''}`}
           onClick={() => setPage('Home')}
         >
-          <span className="sidebar-nav-icon">Home Icon</span>
-          <span>Home</span>
+          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          {!isCollapsed && <span>Home</span>}
+          <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
         <li
-          className={`sidebar-nav-item ${selected === 'favorites' ? 'selected' : ''}`}
+          className={`nav-item ${selected === 'Favorites' ? 'Selected' : ''}`}
           onClick={() => setPage('Favorites')}
         >
-          <span className="sidebar-nav-icon">Favorites Icon</span>
-          <span>Favorites</span>
+          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          {!isCollapsed && <span>Favorites</span>}
+          <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
         <li
-          className={`sidebar-nav-item ${selected === 'watchlater' ? 'selected' : ''}`}
-          onClick={() => setPage('Watch Later')}
+          className={`nav-item ${selected === 'Watchlater' ? 'Selected' : ''}`}
+          onClick={() => setPage('Watchlater')}
         >
-          <span className="sidebar-nav-icon">Watch Later Icon</span>
-          <span>Watch Later</span>
+          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          {!isCollapsed && <span>Watch Later</span>}
+          <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
       </ul>
       {showActivities && (
         <ul className="sidebar-activities">
-          {activities.slice(0, 10).map((activity) => (
-            <Activity key={activity.id} activity={activity} />
+          {activities.slice(0, 10).map((activity, index) => (
+            <Activity
+                key={index}
+                userUsername={activity.userUsername}
+                title={activity.title}
+                date={activity.date}
+              />          
           ))}
         </ul>
       )}

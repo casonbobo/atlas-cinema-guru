@@ -1,21 +1,54 @@
 /* This will hold styles for sidebar */
 
 .sidebar {
-  /* styles later */
+  background-color: var(--color-dark-red);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: width 0.5s;
+  width: 50px;
 }
 
-.sidebar-nav {
-  /* styles later */
+.navigation-menu {
+  list-style: none;
+  margin: 0;
+  padding: 0;
 }
 
-.sidebar-nav-item {
-  /* styles later */
+.sidebar.open .nav-item {
+  justify-content: flex-start;
 }
 
-.sidebar-nav-icon {
-  /* styles later */
+.sidebar.open .nav-item .fa-icon {
+  margin-right: 10px;
 }
 
-.sidebar-activities {
-  /* styles later */
+.arrow-icon {
+  position: absolute;
+  right: 10px;
+  visibility: hidden;
+}
+.nav-item.selected {
+  background-color: var(--color-light-red);
+}
+
+.nav-item {
+  align-items: center;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.nav-item.selected {
+  background-color: var(--color-light-red);
+}
+.nav-item span {
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  visibility: hidden;
+  white-space: nowrap;
 }
