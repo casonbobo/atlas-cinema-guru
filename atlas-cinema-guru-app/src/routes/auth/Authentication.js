@@ -22,7 +22,6 @@ import Register from './Register';
       console.log({ username, password });
       try {
         const response = await axios.post(endpoint, { username, password });
-
         const { accessToken } = response.data;
         if (accessToken) {
           localStorage.setItem('accessToken', accessToken);
