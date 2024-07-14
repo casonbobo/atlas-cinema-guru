@@ -1,28 +1,41 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './auth.css';
+import Input from '../../components/general/Input';
+import Button from '../../components/general/Button';
+import { faUser, faKey, faPlus } from '@fortawesome/free-solid-svg-icons';
 
-const Register = ({ username, password, setUsername, setPassword }) => {
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(`Registering user with username: ${username} and password: ${password}`);
-  };
+  const Register = ({ username, password, setUsername, setPassword }) => {
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+
+    const togglePasswordVisibility = () => setIsPasswordVisible(!isPasswordVisible);
 
   return (
-    <form onSubmit={handleSubmit}>
-      <input
+    <div className="register">
+      <p>Create a new account</p>
+      <Input
         type="text"
-        placeholder="Username"
+        className="Username"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
+        icon={faUser}
       />
-      <input
+      <Input
         type="password"
-        placeholder="Password"
+        className="Password"
         value={password}
-        onChange={(e) => setPassword(e.target.value)}
+        setValue={setPassword}
+        icon={faKey}
+        showPasswordToggle={true}
+        isPasswordVisible={isPasswordVisible}
+        togglePassword={togglePasswordVisibility}
       />
-      <button type="submit">Submit</button>
-    </form>
+      <Button
+        label="Sign Up"
+        type="submit"
+        className="register-button"
+        icon={faKey}
+      />
+    </div>
   );
 };
 
