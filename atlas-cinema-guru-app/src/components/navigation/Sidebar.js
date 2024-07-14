@@ -4,7 +4,7 @@ import axios from 'axios';
 import Activity from '../Activity';
 import './navigation.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faClock, faArrowRight } from '@fortawesome/free-solid-svg-icons';
+import { faClock, faArrowRight, faFolder, faStar} from '@fortawesome/free-solid-svg-icons';
 
 const SideBar = () => {
   const navigate = useNavigate();
@@ -15,7 +15,7 @@ const SideBar = () => {
 
   const setPage = (pageName) => {
     setSelected(pageName);
-    navigate(`/${pageName.toLowerCase()}`);
+    navigate(`/${pageName}`);
   };
 
   useEffect(() => {
@@ -25,11 +25,13 @@ const SideBar = () => {
   const handleSidebarToggle = () => {
     setIsCollapsed(prevState => !prevState);
   };
+
   const retrieveActivities = useCallback(async () => {
     try {
       const token = localStorage.getItem('accessToken');
       const { data } = await axios.get('http://localhost:8000/api/activity', {
-        headers: { Authorization: `Bearer ${token}` }
+        headers: { 
+          Authorization: `Bearer ${token}` }
       });
       setActivities(data.slice(0, 10));
       setShowActivities(true);
@@ -49,7 +51,7 @@ const SideBar = () => {
           className={`nav-item ${selected === 'Home' ? 'Selected' : ''}`}
           onClick={() => setPage('Home')}
         >
-          <FontAwesomeIcon className="icon" icon={faClock} />
+          <FontAwesomeIcon className="icon" icon={faFolder} />
           {!isCollapsed && <span>Home</span>}
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
@@ -57,7 +59,7 @@ const SideBar = () => {
           className={`nav-item ${selected === 'Favorites' ? 'Selected' : ''}`}
           onClick={() => setPage('Favorites')}
         >
-          <FontAwesomeIcon className="icon" icon={faClock} />
+          <FontAwesomeIcon className="icon" icon={faStar} />
           {!isCollapsed && <span>Favorites</span>}
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
