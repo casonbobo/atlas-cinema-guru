@@ -9,8 +9,14 @@
 }
 
 .authentication {
+  position: absolute;
   width: 50%;
   max-width: 450px;
+  top: 30%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 }
 
 .error-message {

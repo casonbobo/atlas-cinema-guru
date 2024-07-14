@@ -16,6 +16,7 @@ import { faUser, faKey, faPlus } from '@fortawesome/free-solid-svg-icons';
         type="text"
         className="Username"
         value={username}
+        setValue={setUsername}
         onChange={(e) => setUsername(e.target.value)}
         icon={faUser}
       />
@@ -30,10 +31,10 @@ import { faUser, faKey, faPlus } from '@fortawesome/free-solid-svg-icons';
         togglePassword={togglePasswordVisibility}
       />
       <Button
-        label="Sign Up"
+        label="Sign In"
         type="submit"
         className="register-button"
-        icon={faPlus}
+        icon={faKey}
       />
     </div>
   );

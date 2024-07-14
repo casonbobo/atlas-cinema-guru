@@ -10,7 +10,9 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
-
+.icon {
+  padding-right: 5px;
+}
 .custom-button:hover {
   background-color: darkred; /* Color change on hover */
 }
@@ -33,17 +35,20 @@
 
 .search-bar-wrapper input {
   padding-left: 30px;
-  border-radius: 25px;
-  background-color: var(--color-dark-gray);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 .input-wrapper input{
-  border-radius: 25px;
-  background-color: var(--color-dark-gray);
-  color: var(--color-white);
+  border: none;
+  border-bottom: 2px solid var(--color-dark-red);
+  outline-style: none;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }
 .input-container select {
-  border-radius: 25px;
-  background-color: var(--color-dark-gray);
-  color: var(--color-white);
+  border: none;
+  border-bottom: 2px solid var(--color-dark-red);
+  outline-style: none;
+  background-color: var(--color-white);
+  color: var(--color-black);
 }

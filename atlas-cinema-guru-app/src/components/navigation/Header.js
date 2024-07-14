@@ -1,21 +1,26 @@
-import React from 'react';
-import './navigation.css';
+import React from 'react'
+import './navigation.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Header = ({ userUsername, setIsLoggedIn }) => {
-  const handleLogout = () => {
+  const logout = () => {
     localStorage.removeItem('accessToken');
     setIsLoggedIn(false);
   };
 
   return (
     <nav className="header">
-      <img src="https://picsum.photos/100/100" alt="User Avatar" />
-      <p>Welcome, {userUsername}</p>
-      <span onClick={handleLogout}>
-        <i className="fas fa-sign-out-alt"></i> Logout
-      </span>
+      <p>Cinema Guru</p>
+      <div className="user-options">
+        <img src="https://picsum.photos/100/100" alt="User" />
+        <p>Welcome, {userUsername}!</p>
+        <span className="" onClick={logout}>
+          Logout <FontAwesomeIcon icon={faSignOutAlt} />
+        </span>
+      </div>
     </nav>
-  );
-};
+  )
+}
 
 export default Header;

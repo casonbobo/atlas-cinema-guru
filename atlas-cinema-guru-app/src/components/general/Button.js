@@ -5,6 +5,7 @@ import './general.css';
 const Button = ({ label, className, onClick, icon }) => {
   return (
     <button className={`button ${className}`} onClick={onClick}>
+      {icon && <FontAwesomeIcon className="icon" icon={icon} />}
       {label}
     </button>
   );
