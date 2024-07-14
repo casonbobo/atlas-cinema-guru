@@ -1,16 +1,15 @@
 import React from 'react';
 import './components.css';
 
-const Activity = ({ activity }) => {
-  const formattedSentence = `You ${activity.verb} ${activity.object} on ${activity.date}`;
+function Activity ({userUsername, title, date}) {
 
   return (
     <li className="activity">
-      <p className="activity-description">{formattedSentence}</p>
-      {
-
-        
-      }
+      <p>
+        <span className='activity'>{userUsername}</span>
+        <span className='activity'>{title}</span>
+        <span className='activity-date'>{date}</span>
+      </p>
     </li>
   );
 };

@@ -31,8 +31,7 @@ import Register from './Register';
         }
       } catch (error) {
         const errorMessage = error.response && error.response.data && error.response.data.message
-                        ? error.response.data.message
-                        : error.message;
+                        ? error.response.data.message : error.message;
         setError(errorMessage);
         console.error('Authentication error:', errorMessage);
         }

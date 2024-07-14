@@ -49,7 +49,7 @@ const SideBar = () => {
           className={`nav-item ${selected === 'Home' ? 'Selected' : ''}`}
           onClick={() => setPage('Home')}
         >
-          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          <FontAwesomeIcon className="icon" icon={faClock} />
           {!isCollapsed && <span>Home</span>}
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
@@ -57,7 +57,7 @@ const SideBar = () => {
           className={`nav-item ${selected === 'Favorites' ? 'Selected' : ''}`}
           onClick={() => setPage('Favorites')}
         >
-          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          <FontAwesomeIcon className="icon" icon={faClock} />
           {!isCollapsed && <span>Favorites</span>}
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>
@@ -65,7 +65,7 @@ const SideBar = () => {
           className={`nav-item ${selected === 'Watchlater' ? 'Selected' : ''}`}
           onClick={() => setPage('Watchlater')}
         >
-          <FontAwesomeIcon className="fa-icon" icon={faClock} />
+          <FontAwesomeIcon className="icon" icon={faClock} />
           {!isCollapsed && <span>Watch Later</span>}
           <FontAwesomeIcon className="arrow-icon" icon={faArrowRight} />
         </li>

@@ -15,7 +15,7 @@ const Header = ({ userUsername, setIsLoggedIn }) => {
       <div className="user-options">
         <img src="https://picsum.photos/100/100" alt="User" />
         <p>Welcome, {userUsername}!</p>
-        <span className="" onClick={logout}>
+        <span className="logout" onClick={logout}>
           Logout <FontAwesomeIcon icon={faSignOutAlt} />
         </span>
       </div>

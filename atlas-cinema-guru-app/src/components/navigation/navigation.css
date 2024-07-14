@@ -54,3 +54,19 @@
   visibility: hidden;
   white-space: nowrap;
 }
+
+.icon {
+  margin-right: 10px;
+}
+
+.logout {
+  color: var(--color-dark-red);
+  cursor: pointer;
+}
+
+.header {
+  color: var(--color-black);
+  display: flex;
+  justify-content: space-between;
+  
+}
