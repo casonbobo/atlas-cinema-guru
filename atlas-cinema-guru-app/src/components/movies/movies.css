@@ -17,14 +17,11 @@
   margin-top: 10px;
   margin-bottom: 10px;
 }
+
 /* For Filter */
 .filter {
   display: flex;
   justify-content: space-between;  
-}
-  
-.filter-search-bar {
-  /* Add your styles here */
 }
 
 .filter-input {
@@ -32,7 +29,15 @@
   display: flex;
 }
 
-.filter-select {
-  /* Add your styles here */
+/* For Movie Card*/
+.movie-card-info img {
+  width: 100%;
+  height: 15rem;
+  object-fit: cover;
 }
 
+.movie-info {
+  margin-top: -4rem;
+  background-color: var(--color-dark-gray);
+  height: 10rem;
+}
