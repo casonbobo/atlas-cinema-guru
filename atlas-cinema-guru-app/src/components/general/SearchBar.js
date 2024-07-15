@@ -1,5 +1,8 @@
 import React from 'react';
 import './general.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
+
 
 const SearchBar = ({ title, setTitle }) => {
   const handleInput = (event) => {
@@ -14,6 +17,7 @@ const SearchBar = ({ title, setTitle }) => {
           value={title}
           onChange={handleInput}
           placeholder="Search..."
+          icon={<FontAwesomeIcon icon={faSearch} style={{color: "#d3d6db",}} />}
         />
       </div>
     </div>

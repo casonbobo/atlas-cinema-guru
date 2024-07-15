@@ -56,24 +56,13 @@ const MovieCard = ({ movie }) => {
   };
 
   return (
-    <li>
-      <FontAwesomeIcon
-        icon={faStar}
-        color={isFavorite ? 'gold' : 'gray'}
-        onClick={() => handleClick('favorite')}
-      />
-      <FontAwesomeIcon
-        icon={faPlus}
-        color={isWatchLater ? 'blue' : 'gray'}
-        onClick={() => handleClick('watchlater')}
-      />
-      <h2>{movie.title}</h2>
-      <p>{movie.synopsis}</p>
-      <ul>
-        {movie.genres.map((genre) => (
-          <li key={genre}>{genre}</li>
-        ))}
-      </ul>
+    <li className='movie-card-li'>
+      {isFavortie ?
+        <FontAwesomeIcon icon={faStarSolid} className='card-icon' onClick={() => handleClick('favorite')} />
+        :
+        <FontAwesomeIcon icon={faStarRegular} className='card-icon' onClick={() => handleClick('favorite')} /> 
+        }
+
     </li>
   );
 };

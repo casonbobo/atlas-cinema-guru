@@ -2,30 +2,37 @@
 
 /* For Tag */
 .tag {
-  /* styles for later */
+  color: var(--color-white);
+  font-size: 12px;
+  background-color: var(--color-dark-gray);
+  border: 1px;
+
 }
 
 .tag-selected {
-  /* styles for later */
+  background-color: var(--color-light-red);
 }
 
+.movie-card-li {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 /* For Filter */
 .filter {
-    /* Add your styles here */
-  }
+  display: flex;
+  justify-content: space-between;  
+}
   
-  .filter-search-bar {
-    /* Add your styles here */
-  }
-  
-  .filter-input {
-    /* Add your styles here */
-  }
-  
-  .filter-select {
-    /* Add your styles here */
-  }
-  
-  .filter-tags {
-    /* Add your styles here */
-  }
+.filter-search-bar {
+  /* Add your styles here */
+}
+
+.filter-input {
+  width: 50%;
+  display: flex;
+}
+
+.filter-select {
+  /* Add your styles here */
+}
+
