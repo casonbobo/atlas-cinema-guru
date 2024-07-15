@@ -36,26 +36,26 @@ const HomePage = () => {
     loadMovies(page);
   }, [minYear, maxYear, genres, sort, title, page]);
 
+  function loadMore() {
+    setPage(prevPage => prevPage + 1);
+    loadMovies(page + 1);
+  }
+  
   return (
     <div className="dashboard-homepage">
       <Filter
-        minYear={minYear}
-        setMinYear={setMinYear}
-        maxYear={maxYear}
-        setMaxYear={setMaxYear}
-        genres={genres}
-        setGenres={setGenres}
-        sort={sort}
-        setSort={setSort}
-        title={title}
-        setTitle={setTitle}
+        minYear={minYear} setMinYear={setMinYear}
+        maxYear={maxYear} setMaxYear={setMaxYear}
+        genres={genres} setGenres={setGenres}
+        sort={sort} setSort={setSort}
+        title={title} setTitle={setTitle}
       />
       <ul>
         {movies.map((movie) => (
           <MovieCard key={movie.imdbId} movie={movie} />
         ))}
       </ul>
-      <Button onClick={() => setPage((prevPage) => prevPage + 1)}>Load More..</Button>
+      <Button type='button' label='load more...' onClick={() => loadMore}></Button>
     </div>
   );
 };
