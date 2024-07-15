@@ -9,13 +9,12 @@ const WatchLater = () => {
   useEffect(() => {
     const fetchWatchLater = async () => {
       try {
-        const response = await axios.get('/api/titles/watchlater');
+        const response = await axios.get('http://localhost:8000/api/titles/watchlater/');
         setMovies(response.data);
       } catch (error) {
         console.error(error);
       }
     };
-
     fetchWatchLater();
   }, []);
 
