@@ -9,24 +9,23 @@ const Favorites = () => {
   useEffect(() => {
     const fetchFavorites = async () => {
       try {
-        const response = await axios.get('/api/titles/favorite');
+        const response = await axios.get('http://localhost:8000/api/titles/favorite');
         setMovies(response.data);
       } catch (error) {
         console.error(error);
       }
     };
-
     fetchFavorites();
   }, []);
 
   return (
     <div className="dashboard-favorites">
       <h1>Movies you like</h1>
-      <ul>
-        {movies.map((movie) => (
-          <MovieCard key={movie.imdbId} movie={movie} />
-        ))}
-      </ul>
+        <div className='favMovies'>
+          {movies.map((movie) => (
+            <MovieCard key={movie.imdbId} movie={movie} />
+          ))}
+        </div>
     </div>
   );
 };

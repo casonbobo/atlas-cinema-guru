@@ -1,5 +1,13 @@
 /* This will hold styles for sidebar */
 
+.header-nav {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 .sidebar {
   background-color: var(--color-dark-red);
   height: 100%;
